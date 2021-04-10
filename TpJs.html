@@ -6,97 +6,31 @@
 </head>
 
 <body>
-	<div>
-		<h1 id="demo">Sen Money</h1>
-		<form action="">
-			<select name="" id="num">
-				<script>
-					var txt = "";
-					for (let i = 0; i < tabNumeros.length; i++) {
-						txt += "<option>" + tabNumeros[i] + "</option>";
-					}
-					document.write(txt);
-				</script>
-			</select>
-		</form>
-		<br />
-		<button onclick="main()"> #144# </button><br><br />
-	</div>
-	<script>
-		var tabNumeros = ["776598720", "789465782", "771200240", "785476913", "773854467"];
-		var tabSoldes = [46200, 982510, 46800, 89000, 45000];
-		var tabCodes = ["0001", "0002", "0003", "0004", "0005"];
-		var numCourant = "";
-		function menu() {
-			var textMenu = "Bienvenue sur Sen Money\n" +
-				"1. Solde de mon compte\n" +
-				"2. Transfert d argent\n" +
-				"3. Paiement facture\n" +
-				"4. Options";
-			var rep = window.prompt(textMenu);
-			return rep;
-		}
-		function afficheSolde(num) {
-			var indice = tabNumeros.indexOf(num);
-			if (indice != -1) {
-				var code = window.prompt("veuillez entrer votre code secret:\n");
-				if (code == tabCodes[indice]) {
-					alert("Le solde de votre comtpe est de " + tabSoldes[indice] + " F CFA") + etapeSuivant();
-				}
-				else {
-					alert("code erroné");
-				}
-			}
-		}
-		function transfertArgent(numDest) {
-			var indice = tabNumeros.indexOf(numDest);
-			if (indice != -1) {
-				var numero = window.prompt("Je saisis le numéro de téléphone du destinataire:");
-				if (numero != -1) {
-					for (var i = 0; i < tabNumeros.length; i++) {
-						if (numero == tabNumeros[i]) {
-							var montant = window.prompt("Veuillez saisir le montant du transfert:");
-							var y = parseInt(montant);
-							var code = window.prompt("Veuillez entrer votre code secret:");
-							if (code == tabCodes[indice]) {
-								if (y < tabSoldes[indice]) {
-									tabSoldes[indice] -= y;
-									tabSoldes[i] = tabSoldes[i] + y;
-									alert("Votre nouveau solde est de " + tabSoldes[indice] + " F CFA");
-								}
-								else {
-									alert("Solde insuffisant");
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		function main() {
-			var rep = menu();
-			var numCourant = document.getElementById('num').value;
-			switch (rep) {
-				case "1":
-					afficheSolde(numCourant);
-					break;
 
-				case "2":
-					numChoisi = document.getElementById('num').value;
-					transfertArgent(numChoisi);
-					break;
-			}
-		}
-		function etapeSuivant() {
-			var retourMenu = window.confirm("Voulez vous retourner au menu ?")
-			if (retourMenu == true) {
-				return main();
-			}
-			else {
-				alert("Au revoir")
-			}
-		}
-	</script>
 </body>
+<p>
+	Le Monde et ses partenaires peuvent, indépendamment ou conjointement, déposer lors de votre visite sur ce site des
+	cookies et technologies similaires, afin de collecter des informations, y compris des données personnelles, telles que
+	: adresse IP, identifiants uniques, données de navigation, données de géolocalisation.
+
+	Ces données sont traitées par Le Monde et/ou ses partenaires aux fins suivantes : analyse et amélioration de
+	l’expérience utilisateur et de l’offre de contenus, produits et services du Monde, mesure et analyse d’audience,
+	intéraction avec les réseaux sociaux, lutte contre la fraude, affichage de publicités et contenus personnalisés sur le
+	site du Monde ou de tiers, mesure de performance et d’attractivité des publicités et du contenu. Pour plus
+	d’informations, consulter notre politique de confidentialité.
+
+	A l’exception de ceux nécessaires au fonctionnement du site ainsi que, sous certaines conditions, à la mesure
+	d’audience, les cookies et technologies similaires ne peuvent être déposés qu’avec votre consentement. Vous pouvez
+	librement donner, refuser ou retirer votre consentement à tout moment en accédant à notre outil de paramétrage des
+	cookies. Si vous ne consentez pas à l’utilisation de ces technologies, nous considérerons que vous vous opposez
+	également à tout dépôt de cookie que certains partenaires justifient par un intérêt légitime.
+
+	Que se passe-t-il si je refuse ?
+
+	Si vous n’êtes pas abonné(e) et que vous refusez les cookies publicitaires, vous pourrez accéder au site. Le Monde
+	pourrait afficher lors de votre navigation un bandeau promotionnel pour vous faire découvrir ses offres d’abonnement.
+	Le refus de certains cookies est susceptible de dégrader des fonctionnalités du site (exemple : lecture des vidéos).
+	Nous serons donc amenés à vous solliciter de nouveau si vous souhaitez accéder à celles-ci.
+</p>
 
 </html>
